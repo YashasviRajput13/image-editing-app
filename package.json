@@ -1,0 +1,14 @@
+﻿{
+  "name": "aws-amplify-workshop",
+  "version": "1.0.0",
+  "description": "AWS Workshop Project",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Building AWS Amplify Project...' && exit 0",
+    "start": "echo 'Starting development server...' && exit 0",
+    "test": "echo 'No tests configured' && exit 0"
+  },
+  "keywords": ["aws", "amplify"],
+  "author": "",
+  "license": "MIT"
+}
