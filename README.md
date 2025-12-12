@@ -1,98 +1,96 @@
-📸 AI Image Editing App — Serverless Web Application (AWS Bedrock + Amplify + Lambda + API Gateway + DynamoDB + Cognito)
+🎨✨ AI Image Editing App — Serverless + Bedrock Titan V2
 
-A fully serverless, AI-powered image editing application built using Amazon Bedrock (Titan Image Generator V2), AWS Amplify, Amazon Cognito, Lambda, API Gateway, and DynamoDB.
-This project allows users to authenticate, upload images, generate AI-edited images, and save output history — all without managing any servers.
+Edit images with AI. No servers. Just AWS magic.
 
-🚀 Features
-🔐 Authentication (Cognito)
+<p align="center"> <img src="https://img.shields.io/badge/AWS-Bedrock-orange?style=for-the-badge" /> <img src="https://img.shields.io/badge/Serverless-Application-blueviolet?style=for-the-badge" /> <img src="https://img.shields.io/badge/React-Frontend-61dafb?style=for-the-badge&logo=react" /> <img src="https://img.shields.io/badge/Amplify-Hosting-ff9900?style=for-the-badge&logo=aws-amplify" /> </p>
+🖼️ About the Project
 
-Secure login/signup using Amazon Cognito User Pools
+Welcome to the AI Image Editing App, a fully serverless application powered by Amazon Bedrock’s Titan Image Generator V2 — giving you the ability to create, edit, transform, and remix images using the power of generative AI.
 
-Email/Username-based authentication
+This project was built as part of the AWS AI Workshop, but it is production-ready, scalable, and perfect for showing off your cloud skills.
 
-Hosted UI support
+⚡ What This App Can Do
+✨ AI-Powered Image Editing
 
-🖼 AI-Powered Image Editing (Amazon Bedrock)
+Type what you want → Titan V2 generates it.
+Examples:
 
-Uses amazon.titan-image-generator-v2:0
+“Make background pastel purple”
 
-Supports:
+“Convert this into a Pixar-style character”
 
-Text-based transformations
+“Give this object a neon glow”
 
-Style changes
+🔐 Secure Login (Cognito)
 
-Background manipulation
+Every user signs in using secure authentication provided by AWS Cognito.
 
-Image enhancement & creative editing
+⚙️ Serverless Backend
 
-⚡ Serverless Backend (Lambda + API Gateway)
+A beautifully simple backend created using:
 
-Frontend securely calls an API Gateway endpoint
+API Gateway
 
-Lambda function processes the request
+Lambda
 
-Lambda invokes Bedrock Titan model to generate edited images
+Amazon Bedrock
 
-💾 NoSQL Storage (DynamoDB)
+DynamoDB
 
-Stores image IDs, metadata, timestamps, and user references
+No servers. No maintenance. Just compute when you need it.
 
-Fast retrieval of edit history
+🌐 Hosted on AWS Amplify
 
-🌐 Frontend Hosting (AWS Amplify)
+Your app goes live on the internet with one click.
+Push to GitHub → Amplify deploys automatically.
 
-Fully deployed and hosted through AWS Amplify Hosting
+🧬 High-Level Architecture
+         🤳 User
+           |
+           v
+   [React Frontend – Amplify Hosting]
+           |
+           v
+   [Amazon Cognito – Auth]
+           |
+           v
+   [API Gateway]
+           |
+           v
+   [Lambda Function]
+           |
+           v
+   [Amazon Bedrock – Titan Image Generator V2]
+           |
+           v
+   [DynamoDB – History Storage]
 
-Automatic CI/CD from GitHub
 
-🏗 Architecture Overview
-React Frontend (Amplify Hosting)
-        |
-        v
-Amazon Cognito  ←→  User Authentication
-        |
-        v
-API Gateway  ←→  Secure REST API
-        |
-        v
-Lambda Function  ←→  Amazon Bedrock (Titan Image Generator V2)
-        |
-        v
-DynamoDB  ←→  Store image metadata & history
+A modern, clean serverless pipeline designed for real-world workloads.
 
-
-Completely serverless — scales automatically on AWS.
-
-📂 Project Structure
-image-editing-app/
-│
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── services/
-│   └── App.js
-│
-├── workshopConfig.js   ← Your AWS config (Cognito + API Gateway)
-├── package.json
-└── README.md
-
-⚙️ Setup Instructions
-1️⃣ Clone the repository
+🧩 Tech Stack
+Layer	Technology	Purpose
+Frontend	React + Amplify Hosting	UI for image editing
+Auth	Amazon Cognito	Login/signup
+AI Model	Bedrock Titan Image Generator V2	Image generation
+Backend	Lambda	Runs AI logic
+API	API Gateway	RESTful API
+Database	DynamoDB	Save results & history
+🔧 Setup Guide (Super Simple)
+1️⃣ Clone the Project
 git clone https://github.com/YashasviRajput13/image-editing-app.git
 cd image-editing-app
 
-2️⃣ Install dependencies
+2️⃣ Install Dependencies
 npm install
 
-3️⃣ Configure AWS (Important)
+3️⃣ Add Your AWS Config
 
-Update workshopConfig.js with your actual AWS values:
+Update the workshopConfig.js file:
 
 window._workshopConfig = {
   cognito: {
-    userPoolId: 'YOUR_USER_POOL_ID',
+    userPoolId: 'YOUR_POOL_ID',
     userPoolClientId: 'YOUR_CLIENT_ID',
     region: 'us-east-1'
   },
@@ -101,68 +99,53 @@ window._workshopConfig = {
   }
 };
 
-4️⃣ Run the project locally
+4️⃣ Run Locally
 npm start
 
-5️⃣ Deploy via AWS Amplify (Optional)
+🌟 What Makes Titan Image Generator V2 Special?
 
-Go to AWS Console → Amplify
+🟣 High-fidelity image generation
+🖌 Inpainting and object editing
+🎨 Beautiful artistic transformations
+🧠 Strong prompt alignment
+🛡 Safe and enterprise-ready
 
-Create a new Amplify app
+Readable. Powerful. Responsible.
 
-Connect your GitHub repo
+🚀 Deploying with Amplify
 
-Select branch: main
+Open AWS Amplify Console
+
+Click Create App → Host Web App
+
+Select GitHub
+
+Choose your repo
 
 Deploy
 
-Amplify will automatically build & host your project.
+CI/CD is automatically enabled 🎉
+Every push to main updates your live site.
 
-🧠 Model Used: amazon.titan-image-generator-v2:0
+🛤️ Future Possibilities
 
-Amazon Bedrock’s next-generation text-to-image model with:
+AI-powered background removal
 
-High-resolution image output
+Photo restoration
 
-Inpainting & variations
+Applying LLM-based captioning
 
-Strong prompt adherence
+Multi-model support (Stable Diffusion, Claude Image-to-Text)
 
-Safe, commercial-ready images
+Save/share user galleries
 
-Ideal for editing, designing, and content creation
-
-🔥 API Request Example (Lambda → Bedrock)
-response = bedrock_client.invoke_model(
-    modelId="amazon.titan-image-generator-v2:0",
-    contentType="application/json",
-    accept="application/json",
-    body=json.dumps({
-        "taskType": "imageGeneration",
-        "text": prompt,
-        "imageFormat": "jpeg"
-    })
-)
-
-📝 Future Enhancements
-
-Add image history dashboard
-
-Add filters like blur/sharpen/denoise
-
-Allow user to download edited images
-
-Add multi-model support (e.g., Stability Diffusion, Claude tasks)
-
-Add dark/light theme toggle
+Light/Dark mode UI
 
 🤝 Contributing
 
-Pull requests are welcome!
-Please create an issue first if you want to propose major changes.
+Contributions, ideas, and pull requests are always welcome!
+Whether it's UI improvements, new features, or AWS enhancements — feel free to collaborate.
 
-📄 License
+⭐ Give This Repo a Star
 
-This project is licensed under the MIT License.
-
-⭐ If this project helped you, consider giving the repo a star! ⭐
+If you like this project, hitting the ⭐ button helps others discover it!
